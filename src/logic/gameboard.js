@@ -20,6 +20,7 @@ export class Gameboard {
 
   placeShip(ship, pos, dir) {
     let [x, y] = pos;
+    let shipPos = []
     if (!this.validPos(pos)) return false;
 
     if (dir == "v") {
@@ -27,24 +28,26 @@ export class Gameboard {
 
       if (!this.occupied(pos)) {
         this.board[x][y] = { ship, pos };
-        this.fleet.push(this.board[x][y]);
+        shipPos.push([x, y])
         for (let i = 1; i <= ship.length - 1; i++) {
           this.board[x][y + i] = { ship, pos: [x, y + i] };
-          this.fleet.push(this.board[x][y + i]);
+            shipPos.push([x, y + i])
         }
       }
+        this.fleet.push(shipPos) // Each array in fleet will be a full ship on its own;
     }
     if (dir == "h") {
       if (x + ship.length > 10) return false;
 
       if (!this.occupied(pos)) {
         this.board[x][y] = { ship, pos: [x, y] };
-        this.fleet.push(this.board[x][y]);
+        shipPos.push([x, y])
         for (let i = 0; i <= ship.length - 1; i++) {
           this.board[x + i][y] = { ship, pos: [x + i, y] };
-          this.fleet.push(this.board[x + i][y]);
+            shipPos.push([x + i, y])
         }
       }
+        this.fleet.push(shipPos)
     }
   }
 

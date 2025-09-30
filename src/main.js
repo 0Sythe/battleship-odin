@@ -1,2 +1,5 @@
 import "./style.css";
-import "./ui.js"
+import { Ui } from "./ui.js"
+
+const ui = new Ui();
+ui.init();

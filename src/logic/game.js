@@ -22,8 +22,8 @@ export class Game {
         if (player == this.h) {
             player = this.h.board;
             const ships = [
-                new Ship("TT", 2), new Ship("O_O", 3),
-                new Ship(":)", 5), new Ship(";)", 1)
+                new Ship(2), new Ship(3),
+                new Ship(5), new Ship(1)
             ];
             player.placeShip(ships[0], [2, 2], "v")
             player.placeShip(ships[2], [6, 3], "v")
@@ -33,8 +33,8 @@ export class Game {
         if (player == this.c) {
             player = this.c.board;
             const ships = [
-                new Ship("-_-", 3), new Ship("O_o", 2),
-                new Ship("^_^", 1), new Ship("'_'", 5)
+                new Ship(3), new Ship(2),
+                new Ship(1), new Ship(5)
             ];
             player.placeShip(ships[0], [3, 3], "v")
             player.placeShip(ships[2], [5, 1], "v")

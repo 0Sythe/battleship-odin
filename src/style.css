@@ -1,3 +1,37 @@
 body {
-    background: #BFBFBF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    gap: 5vh;
+}
+
+.title {
+    font-size: 2.8em;
+    font-family: monospace, sans-serif;
+    font-weight: 800;
+    text-decoration: underline;
+    color: rgba(25, 100, 255, 0.8);
+}
+
+.boards-container {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    column-gap: 10vw;
+}
+
+.h-board, .c-board {
+    display: grid;
+    grid-template: repeat(10, minmax(10px, 1fr)) / repeat(10, minmax(10px, 1fr));
+}
+
+.h-board > div, .c-board > div {
+    display: grid;
+    grid-template: repeat(10, minmax(50px, 1fr)) / 1fr;
+}
+
+.h-board > div > *, .c-board > div > * {
+    height: auto;
+    width: 2.2vw;
 }

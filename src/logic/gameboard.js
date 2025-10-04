@@ -7,6 +7,14 @@ export class Gameboard {
         if (this.board.length <= 0) this.init()
     }
 
+    getFleet() {
+        return this.fleet;
+    }
+
+    getMissed() {
+        return this.missed;
+    }
+
     init() {
         for (let i = 0; i < 10; i++) {
             this.board.push([])
@@ -17,7 +25,7 @@ export class Gameboard {
         return this.board
     }
 
-    static placeShip(ship, pos, dir) {
+    placeShip(ship, pos, dir) {
         let [x, y] = pos;
 
         if (this.validPlacement(pos)) {
@@ -45,7 +53,7 @@ export class Gameboard {
         }
     }
 
-    static receiveAttack(pos) {
+    receiveAttack(pos) {
         if (this.validPos(pos)) {
             let [x, y] = pos;
             if (this.board[x][y] != null) {

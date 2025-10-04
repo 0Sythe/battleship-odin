@@ -1,25 +1,18 @@
 import { Gameboard } from './gameboard.js'
-import { Ship } from './ship.js'
 export class Player {
     constructor() {
         this.board = new Gameboard();
     }
-
+    
     getBoard() {
-        return this.board.board;
-    }
-
-    getMissed() {
-        return this.board.missed;
+        return this.board;
     }
 
     getFleet() {
-        return this.board.fleet;
+        return this.board.getFleet();
+    }
+
+    getMissed() {
+        return this.board.getMissed();
     }
 }
-
-const p = new Player()
-console.log(p)
-
-// p.placeShip(new Ship(2), [3, 3], "v");
-console.log(p.board);

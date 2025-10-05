@@ -1,6 +1,4 @@
 {
-    "type": "module",
-
   "scripts": {
     "test": "jest",
     "dev": "webpack serve --config webpack.dev.js",

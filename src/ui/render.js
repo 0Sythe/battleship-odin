@@ -36,7 +36,11 @@ export class Render {
             console.log(fleet);
         } else {
             let fleet = c.getFleet();
-            console.log(fleet);
+            let shipPos = [];
+            for (let i = 0; i < fleet.length; i++) {
+                shipPos.push(fleet[i].pos);
+            } 
+            console.log(shipPos);
         }
     }
 }

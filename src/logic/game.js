@@ -6,34 +6,22 @@ export class Game {
     constructor() {
         this.h = new Player()
         this.c = new Player()
+        this.placeCShips();
     }
 
     getPlayers() {
         return [this.h, this.c]
     } 
-}
 
+    placeCShips() {
+        let player = this.c.getBoard();
 
-export class Render {
-    init() {
-        this.hBoard = document.querySelector(".h-board");
-        this.cBoard = document.querySelector(".c-board");
-        this.loadBoard(this.hBoard)
-        this.loadBoard(this.cBoard)
-    }
+        while(player.fleet.length < 5) {
+            let pos = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]
 
-    loadBoard(board) {
-        for(let i = 0; i < 10; i++) {
-            const col = document.createElement("div")
-            col.className = "col"
-            col.id = i
-            for (let j = 0; j < 10; j++) {
-                const row = document.createElement("div");
-                row.className = "row"
-                row.id = j
-                col.appendChild(row)
+            if (player.validPlacement(pos)) {
+                player.placeShip(new Ship(player.fleet.length + 1), pos, "v")
             }
-            board.appendChild(col);
         }
     }
 }

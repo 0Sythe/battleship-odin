@@ -15,11 +15,11 @@ export class Render {
     }
 
     loadBoards(board) {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i <= 9; i++) {
             const col = document.createElement("div")
             col.className = 'col'
             col.id = i;
-            for (let j = 0; j < 10; j++) {
+            for (let j = 0; j <= 9; j++) {
                 const row = document.createElement("div")
                 row.className = 'row'
                 row.id = j
@@ -31,16 +31,23 @@ export class Render {
     }
 
     populateBoard(board) {
+        let squares = Array.from(board.childNodes);
         if (board.className == "h-board") {
             let fleet = h.getFleet();
             console.log(fleet);
         } else {
             let fleet = c.getFleet();
-            let shipPos = [];
             for (let i = 0; i < fleet.length; i++) {
-                shipPos.push(fleet[i].pos);
-            } 
-            console.log(shipPos);
+                let pos = fleet[i].pos;
+                for (let j = 0; j < pos.length; j++) {
+                    let [x, y] = pos[j]
+                    console.log(pos[j])
+                    const col = squares.find((square) => square.id == x);
+                    const rows = Array.from(col.childNodes)
+                    const square = rows.find((square) => square.id == y)
+                    square.style.backgroundColor = "black";
+                }
+            }
         }
     }
 }

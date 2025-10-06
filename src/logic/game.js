@@ -16,12 +16,12 @@ export class Game {
     placeCShips() {
         let player = this.c.getBoard();
 
-        while(player.fleet.length < 5) {
-            let pos = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]
-
-            if (player.validPlacement(pos)) {
-                player.placeShip(new Ship(player.fleet.length + 1), pos, "v")
-            }
-        }
+        player.placeShip(new Ship(2), [1, 7], "v")
+        player.placeShip(new Ship(3), [3, 7], "v");
+        player.placeShip(new Ship(3), [5, 9], "h");
+        player.placeShip(new Ship(4), [2, 2], "h");
+        player.placeShip(new Ship(5), [8, 3], "v"); 
+        
+        console.log(player)
     }
 }
